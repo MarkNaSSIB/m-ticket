@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
-use App\TicketStatus;
 use App\TicketPrio;
-
+use App\TicketStatus;
+use Database\Factories\TicketFactory;
 use Illuminate\Database\Eloquent\Casts\AsArrayObject;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -13,19 +15,19 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Ticket extends Model
 {
-    /** @use HasFactory<\Database\Factories\TicketFactory> */
+    /** @use HasFactory<TicketFactory> */
     use HasFactory;
 
     protected $casts = [
         'links' => AsArrayObject::class,
         'status' => TicketStatus::class,
-        'priority' => TicketPrio::class
+        'priority' => TicketPrio::class,
 
     ];
 
     protected $attributes = [
-        'status' => TicketStatus::INPROGRESS,
-        'priority'=> TicketPrio::MEDIUM,
+        'status' => TicketStatus::INPROGRESS->value,
+        'priority' => TicketPrio::MEDIUM->value,
     ];
 
     public function user(): BelongsTo

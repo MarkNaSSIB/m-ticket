@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 enum TicketStatus: string
@@ -17,5 +19,4 @@ enum TicketStatus: string
             self::RESOLVED => 'Resolved',
         };
     }
-
 }

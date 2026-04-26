@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Ticket;
 use App\Models\Note;
+use App\Models\Ticket;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +19,7 @@ class NoteFactory extends Factory
     public function definition(): array
     {
         return [
-            'ticket_id'   => Ticket::factory(), 
+            'ticket_id' => Ticket::factory(),
             'description' => fake()->paragraph(),
         ];
     }

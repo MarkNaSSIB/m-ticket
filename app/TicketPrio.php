@@ -1,13 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 enum TicketPrio: string
 {
     //
-    case LOW = "low";
-    case MEDIUM = "medium";
-    case HIGH = "";
+    case LOW = 'low';
+    case MEDIUM = 'medium';
+    case HIGH = '';
 
     public function label(): string
     {
