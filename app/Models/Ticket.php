@@ -26,7 +26,7 @@ class Ticket extends Model
     ];
 
     protected $attributes = [
-        'status' => TicketStatus::INPROGRESS->value,
+        'status' => TicketStatus::OPEN->value,
         'priority' => TicketPrio::MEDIUM->value,
     ];
 

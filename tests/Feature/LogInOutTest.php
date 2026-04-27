@@ -2,7 +2,12 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use function Pest\Laravel\{get, post, assertAuthenticated, assertGuest};
+use Tests\TestCase;
+
+use function Pest\Laravel\assertAuthenticated;
+use function Pest\Laravel\assertGuest;
+use function Pest\Laravel\get;
+use function Pest\Laravel\post;
 
 it('shows the login page', function () {
     get('/login')
@@ -51,9 +56,8 @@ it('requires email and password', function () {
 });
 
 it('logs out an authenticated user', function () {
-    /** @var \Tests\TestCase $this */
+    /** @var TestCase $this */
     /** @var User $user */
-
     $user = User::factory()->create();
 
     $this->actingAs($user);
@@ -67,4 +71,3 @@ it('logs out an authenticated user', function () {
 
     $this->assertGuest();
 });
-

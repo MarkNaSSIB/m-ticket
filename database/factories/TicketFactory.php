@@ -4,6 +4,8 @@ namespace Database\Factories;
 
 use App\Models\Ticket;
 use App\Models\User;
+use App\TicketPrio;
+use App\TicketStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -22,6 +24,8 @@ class TicketFactory extends Factory
             'user_id' => User::factory(),
             'title' => fake()->sentence(),
             'description' => fake()->paragraph(),
+            'status' => TicketStatus::OPEN,
+            'priority' => TicketPrio::MEDIUM,
             'links' => [fake()->url()],
         ];
     }

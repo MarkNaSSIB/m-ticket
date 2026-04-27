@@ -6,17 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>M-Ticket</title>
 
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
 <body class="bg-background text-foreground">
 
     <x-nav />
-    <x-alert />
 
     <main class="max-w-7x1 mx-auto px-6 pb-10">
         {{ $slot }}
     </main>
+
+    <x-alert />
 
 </body>
 </html>

@@ -2,7 +2,11 @@
 
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-use function Pest\Laravel\{get, post, assertAuthenticated, assertGuest};
+
+use function Pest\Laravel\assertAuthenticated;
+use function Pest\Laravel\assertGuest;
+use function Pest\Laravel\get;
+use function Pest\Laravel\post;
 
 it('shows the registration page', function () {
     get('/register')

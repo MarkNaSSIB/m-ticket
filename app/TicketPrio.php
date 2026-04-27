@@ -9,7 +9,7 @@ enum TicketPrio: string
     //
     case LOW = 'low';
     case MEDIUM = 'medium';
-    case HIGH = '';
+    case HIGH = 'high';
 
     public function label(): string
     {
