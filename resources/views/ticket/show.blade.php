@@ -80,15 +80,43 @@
     <section>
         <h2 class="text-xl font-semibold mb-4">Notes</h2>
 
-        @forelse ($ticket->notes as $note)
-            <x-card class="mb-4">
-                <div class="text-sm text-foreground">
-                    {{ $note->body }}
+        {{-- Add Note Form --}}
+        <x-card class="mb-4">
+            <form method="POST" action="{{ route('note.store', $ticket) }}" class="space-y-3">
+                @csrf
+                <input type="hidden" name="ticket_id" value="{{ $ticket->id }}">
+                <div>
+                    <textarea 
+                        name="description" 
+                        rows="3"
+                        class="w-full border rounded px-3 py-2 text-sm"
+                        placeholder="Add a note..."
+                        required
+                    ></textarea>
                 </div>
+                <button type="submit" class="px-3 py-1.5 text-sm rounded bg-blue-600 text-white hover:bg-blue-700">
+                    Add Note
+                </button>
+            </form>
+        </x-card>
 
-                <div class="mt-3 text-xs text-muted-foreground">
-                    {{ $note->created_at->diffForHumans() }}
+        @forelse ($ticket->notes as $note)
+            <x-card class="mb-4 flex items-start justify-between">
+                <div class="flex-1">
+                    <div class="text-sm text-foreground">
+                        {{ $note->description }}
+                    </div>
+                    <div class="mt-2 text-xs text-muted-foreground">
+                        {{ $note->created_at->diffForHumans() }}
+                    </div>
                 </div>
+                <form method="POST" action="{{ route('note.destroy', $note) }}" class="ml-3">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="px-3 py-2 text-sm rounded bg-red-600 text-white hover:bg-red-700" title="Delete note">
+                        Delete
+                    </button>
+                </form>
             </x-card>
         @empty
             <x-card>

@@ -14,6 +14,11 @@ class Note extends Model
     /** @use HasFactory<NoteFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'ticket_id',
+        'description',
+    ];
+
     public function ticket(): BelongsTo
     {
         return $this->belongsTo(Ticket::class);

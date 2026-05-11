@@ -36,6 +36,34 @@
                 ></textarea>
             </div>
 
+            {{-- Priority --}}
+            <div>
+                <label class="block text-sm font-medium mb-1">Priority</label>
+                <select 
+                    name="priority" 
+                    class="w-full border rounded px-3 py-2"
+                    required
+                >
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+
+            {{-- Status --}}
+            <div>
+                <label class="block text-sm font-medium mb-1">Status</label>
+                <select 
+                    name="status" 
+                    class="w-full border rounded px-3 py-2"
+                    required
+                >
+                    <option value="open" selected>Open</option>
+                    <option value="in_progress">In Progress</option>
+                    <option value="resolved">Resolved</option>
+                </select>
+            </div>
+
             {{-- Image (optional) --}}
             <div>
                 <label class="block text-sm font-medium mb-1">Image (optional)</label>
